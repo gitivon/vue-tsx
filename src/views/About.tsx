@@ -11,13 +11,20 @@ export default class About extends Vue {
   }
 
   public render () {
+    const data = {
+      props: {
+        ok: this.msg
+      },
+      on: {
+        click: this.handlerClick
+      }
+    }
     return (
       <div>
         {this.msg}
-        <Demo 
-          ok={this.msg} 
-          on-click={this.handlerClick} 
-          // on-cancel={this.handlerClick} 
+        <Demo {...data}
+          // ok={this.msg} 
+          // onCliek={this.handlerClick} 
         />
       </div>
     )
