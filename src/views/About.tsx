@@ -20,7 +20,7 @@ export default class About extends Vue {
       }
     }
     return (
-      <div>
+      <div> 
         {this.msg}
         <Demo {...data}
           // ok={this.msg} 
