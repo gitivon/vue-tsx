@@ -1,18 +1,33 @@
-<template>
-  <div class="home">
-    <img src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
-</template>
-
-<script lang="ts">
+<script lang="tsx">
 import { Component, Vue } from 'vue-property-decorator';
-import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
+import HelloWorld from '@/components/HelloWorld.vue';
+import { VNode } from 'vue';
 
-@Component({
-  components: {
-    HelloWorld,
-  },
-})
-export default class Home extends Vue {}
+@Component
+export default class Home extends Vue {
+  private msg: string = "Welcome to Your Vue.ts App"
+  private isWrap: boolean = true
+
+  render(): VNode {
+    const a: VNode = <HelloWorld msg={this.msg} />
+    const wrap = (t: VNode): VNode => (
+      <div class="red">{t}</div>
+    )
+    return (
+      <div class="abc">
+        {this.isWrap ? wrap(a) : a}
+      </div>
+    )
+  }
+
+}
 </script>
+<style lang="scss" scoped>
+.abc {
+  color: blue;
+}
+.red {
+  color: red;
+}
+</style>
+

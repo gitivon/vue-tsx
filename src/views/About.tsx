@@ -4,16 +4,17 @@ import Demo from '@/components//Demo'
 @Component
 export default class About extends Vue {
 
-  @Prop() private msg?: string;
+  @Prop() private msg!: string;
 
   public handlerClick (self) {
     console.log(self)
   }
 
-  public render () {
+  public render (h) {
     const data = {
       props: {
-        ok: this.msg
+        ok: this.msg,
+        error: 'error happens'
       },
       on: {
         click: this.handlerClick
@@ -22,9 +23,12 @@ export default class About extends Vue {
     return (
       <div> 
         {this.msg}
-        <Demo {...data}
+        <Demo 
+          // {...data}
           // ok={this.msg} 
-          // onCliek={this.handlerClick} 
+          // cancel={this.msg} 
+          // on={{'click': this.handlerClick}}
+          // onClick={this.handlerClick} 
         />
       </div>
     )
