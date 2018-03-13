@@ -5,6 +5,7 @@ module.exports = {
     .rule('vue')
       .use('vue-loader')
         .tap(options => {
+          console.log(options.loaders.ts)
           var tsLoader = find(options.loaders.ts, { loader: 'ts-loader' })
           tsLoader.options.appendTsxSuffixTo = [/\.vue$/]
           Object.assign(options.loaders, {

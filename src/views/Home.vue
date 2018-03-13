@@ -2,6 +2,7 @@
 import { Component, Vue } from 'vue-property-decorator';
 import HelloWorld from '@/components/HelloWorld.vue';
 import { VNode } from 'vue';
+import Logo from '@/assets/logo.png'
 
 @Component
 export default class Home extends Vue {
@@ -15,6 +16,7 @@ export default class Home extends Vue {
     )
     return (
       <div class="abc">
+        <img src={Logo} />
         {this.isWrap ? wrap(a) : a}
       </div>
     )
